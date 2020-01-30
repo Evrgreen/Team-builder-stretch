@@ -1,14 +1,12 @@
 import React, {useState} from 'react';
+
 import UserTable from "./tables/UserTable"
 import AddUserForm from "./forms/AddUserForm"
 import EditUserForm from "./forms/EditForm"
+import {userData} from "./DummyData";
 
 const App = () =>{
-  const userData = [
-    {id:1, name:"Tania", role:"Front-end", email:"tinytani@yahoo.com"},
-    {id:2, name:"Craig", role:"UI", email:"codingcraig@google.com"},
-    {id:3, name:"Ben", role:"Back-end", email:"benstiller@me.org"},
-  ]
+
   const addUser = user => {
     user.id = users.length + 1
     setUsers([...users,user])
