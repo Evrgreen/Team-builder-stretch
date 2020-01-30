@@ -6,7 +6,8 @@ const UserTable = props =>(
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Username</th>
+                    <th>Role</th>
+                    <th>E-mail</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -14,7 +15,8 @@ const UserTable = props =>(
                 {props.users.length >0 ?(props.users.map(user => (
                 <tr key={user.id}>
                     <td>{user.name}</td>
-                    <td>{user.username}</td>
+                    <td>{user.role}</td>
+                    <td>{user.email}</td>
                         <td>
                         <button onClick={()=>props.editRow(user)} className="button muted-button">Edit</button>
                         <button onClick={()=> props.deleteUser(user.id)} className="button muted-button">Delete</button>
@@ -23,7 +25,7 @@ const UserTable = props =>(
                 ))
                 ):(
                     <tr>
-                        <td colSpan={3}>No Users</td>
+                        <td colSpan={4}>No Users</td>
                     </tr>
                 )}
             </tbody>

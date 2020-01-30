@@ -5,9 +5,9 @@ import EditUserForm from "./forms/EditForm"
 
 const App = () =>{
   const userData = [
-    {id:1, name:"Tania", username:"Floppydiskette"},
-    {id:2, name:"Craig", username:"siliconeidolon"},
-    {id:3, name:"Ben", username:"benisphere"},
+    {id:1, name:"Tania", role:"Front-end", email:"tinytani@yahoo.com"},
+    {id:2, name:"Craig", role:"UI", email:"codingcraig@google.com"},
+    {id:3, name:"Ben", role:"Back-end", email:"benstiller@me.org"},
   ]
   const addUser = user => {
     user.id = users.length + 1
@@ -17,12 +17,12 @@ const App = () =>{
     setUsers(users.filter(user=> user.id != id))
   }
   const [editing,setEditing] = useState(false)
-  const initialFormState = {id:null,name:"",username:""}
+  const initialFormState = {id:null,name:"",role:"",email:""}
   const [currentUser,setCurrentUser] = useState(initialFormState);
   const editRow = user =>{
     console.log(editing,"Is Editing")
     setEditing(true);
-    setCurrentUser({id:user.id,name:user.name,username:user.username})
+    setCurrentUser({id:user.id,name:user.name,role:user.role,email:user.email})
   }
   const updateUser = (id,updatedUser) =>{
     setEditing(false)
@@ -32,7 +32,7 @@ const App = () =>{
   const [users,setUsers] = useState(userData)
   return(
     <div className="container">
-      <h1>Crud app with hooks</h1>
+      <h1>Team Builder</h1>
       <div className="flex-row">
         <div className="flex-large">
           {editing ? (
