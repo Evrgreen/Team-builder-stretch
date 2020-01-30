@@ -4,7 +4,8 @@ const AddUserForm = props => {
     const initialFormState = {
         id:null,
         name:"",
-        role:""
+        role:"",
+        email:""
     }
 
     const [user,setUser] = useState(initialFormState);
