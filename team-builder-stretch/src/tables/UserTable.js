@@ -1,6 +1,7 @@
 import React from "react";
 
-const UserTable = () =>(
+const UserTable = props =>(
+    
         <table>
             <thead>
                 <tr>
@@ -10,13 +11,20 @@ const UserTable = () =>(
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Name Data</td>
-                    <td>UserName Data</td>
+                {props.users.length >0 ?(props.users.map(user => (
+                <tr key={user.id}>
+                    <td>{user.name}</td>
+                    <td>{user.username}</td>
                         <td><button className="button muted-button">Edit</button>
-                        <button className="button muted-button">Delete</button>
+                        <button onClick={()=> props.deleteUser(user.id)} className="button muted-button">Delete</button>
                     </td>
                 </tr>
+                ))
+                ):(
+                    <tr>
+                        <td colSpan={3}>No Users</td>
+                    </tr>
+                )}
             </tbody>
         </table>
     )
